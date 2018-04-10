@@ -1,0 +1,6 @@
+[package]
+name = "option_some_none"
+version = "0.1.0"
+authors = ["dan <elastic7327@gmail.com>"]
+
+[dependencies]
