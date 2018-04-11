@@ -46,7 +46,52 @@ mod tests {
                                             
     }
 
-        #[test]
+    #[test]
+    fn test_expect() {
+        let x = Some("value");
+        assert_eq!(x.expect("the world is ending"), "value");
+
+
+        let x: Option<&str> = None;
+
+        x.expect("the world is ending");
+        
+    }
+
+    #[test]
+    fn test_unwarp() {
+        let x = Some("in the air");
+        assert_eq!(x.unwrap(), "in the air");
+
+        let x: Option<&str> = None;
+        assert_eq!(x.unwrap(), "in the air");
+    }
+
+    #[test]
+    fn test_unwrap_or_else() {
+        assert_eq!(Some("car").unwrap_or("bike"), "car");
+
+        assert_eq!(None.unwrap_or("bike"), "bike");
+
+    }
+
+    #[test]
+    fn test_unwrap_and_closure() {
+        let k = 10;
+        assert_eq!(Some(4).unwrap_or_else(|| 2 * k), 4);
+        assert_eq!(None.unwrap_or_else(|| 2 * k), 20);
+    }
+
+    #[test]
+    fn test_map_and_some() {
+        let maybe_some_string = Some(String::from("hello, world!"));
+
+        let maybe_some_len = maybe_some_string.map(|s| s.len());
+
+        assert_eq!(maybe_some_len, Some(13));
+    }
+
+    #[test]
     fn test_as_mut() {
         let mut x = Some(2);
         match x.as_mut() {
