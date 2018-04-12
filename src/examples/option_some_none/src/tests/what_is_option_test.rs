@@ -78,6 +78,7 @@ mod tests {
     #[test]
     fn test_unwrap_and_closure() {
         let k = 10;
+
         assert_eq!(Some(4).unwrap_or_else(|| 2 * k), 4);
         assert_eq!(None.unwrap_or_else(|| 2 * k), 20);
     }
@@ -85,7 +86,6 @@ mod tests {
     #[test]
     fn test_map_and_some() {
         let maybe_some_string = Some(String::from("hello, world!"));
-
         let maybe_some_len = maybe_some_string.map(|s| s.len());
 
         assert_eq!(maybe_some_len, Some(13));
@@ -98,8 +98,17 @@ mod tests {
             Some(v) => *v = 42,
             None => {},
         }
-
         assert_eq!(x, Some(42));
+    }
+
+    #[test]
+    fn test_get_or_insert_with() {
+
+        let mut x = None;
+
+        let y: &mut u32 = x.get_or_insert_with(|| 5);
+
+        assert_eq!(y, &5);
     }
 }
 

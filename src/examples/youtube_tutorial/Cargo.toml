@@ -1,0 +1,6 @@
+[package]
+name = "youtube_tutorial"
+version = "0.1.0"
+authors = ["dan <elastic7327@gmail.com>"]
+
+[dependencies]
