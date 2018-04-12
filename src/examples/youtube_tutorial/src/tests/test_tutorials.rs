@@ -1,6 +1,7 @@
 
 
 #[test]
+#[ignore]
 fn test_iteration() {
     assert_eq!(1, 1);
 
@@ -24,6 +25,7 @@ enum Direction {
 }
 
 #[test]
+#[ignore]
 fn test_enum_and_direction() {
     let player_direction:Direction = Direction::Up;
 
@@ -42,6 +44,12 @@ fn test_enum_and_direction() {
          Direction::Left => println!("We are Heading Left!"),
          Direction::Right => println!("We are Heading Right!"),
     }
-    
+}
+
+#[test]
+fn test_tuple_what_the_hack() {
+    let tuple = (20, "Rust", 3.4, false);
+    // println!("{:#?}", tuple);
+    println!("{:#?}", tuple.1);
 }
 
