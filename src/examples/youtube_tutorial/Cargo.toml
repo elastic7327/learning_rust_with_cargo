@@ -6,3 +6,4 @@ authors = ["dan <elastic7327@gmail.com>"]
 [dependencies]
 rand = "0.3"
 regex = "0.2"
+reqwest = "0.8.3"
