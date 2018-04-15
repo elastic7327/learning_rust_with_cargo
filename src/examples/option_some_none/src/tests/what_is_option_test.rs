@@ -2,6 +2,20 @@
 #[cfg(test)]
 mod tests {
     #[test]
+    fn is_some_is_none() {
+
+        let x: Option<u32> = Some(32);
+
+        assert_eq!(x.is_some(), true);
+
+        let y: Option<u32> = None;
+
+        assert_eq!(y.is_some(), false);
+        
+    }
+
+
+    #[test]
     #[ignore]
     fn test_smoke_test() {
 
@@ -109,6 +123,44 @@ mod tests {
         let y: &mut u32 = x.get_or_insert_with(|| 5);
 
         assert_eq!(y, &5);
+        use std::env;
+        match env::home_dir() {
+            Some(path) => println!("{}", path.display()),
+            None => println!("Impossible to get your home dir!"),
+        }
+    }
+
+    #[test]
+    fn test_iter_and_iter_mut() {
+        let x = Some(4);
+        assert_eq!(x.iter().next(), Some(&4));
+        let x: Option<u32> = None;
+        let k = 21;
+        let x = Some("foo");
+        assert_eq!(x.map_or_else(||2 * k, |v| v.len()), 3);
+    }
+
+    #[test]
+    fn test_map_or() {
+        let x = Some("foo");
+        assert_eq!(x.map_or(42, |v| v.len()), 3);
+
+        let k = 21;
+        let x: Option<&str> = None;
+        assert_eq!(x.map_or_else(|| 2 * k, |v| v.len()), 42);
+
+        let g = 42;
+        assert_eq!(x.map_or_else(|| 3 * 3, |v| 3 * 3), 9);
+    }
+
+    #[test]
+    fn test_what_is_enum() {
+        let x: Option<i32> = None;
+        assert_eq!(None, x);
+        let g: Option<i32> = Some(32);
+        assert_eq!(Some(32), g);
+        assert_eq!(32, g.unwrap());
+
     }
 }
 
@@ -117,7 +169,7 @@ mod op_sm {
 
     #[test]
     fn test_option_and_some_more() {
-        
+
         let x: Option<i32> = Some(2);
         assert_eq!(x.is_some(), true);
 
