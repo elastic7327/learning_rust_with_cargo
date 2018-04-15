@@ -1,1 +1,0 @@
-/Users/dan/Projects/public/learning_rust_with_cargo/src/examples/youtube_tutorial/target/debug/youtube_tutorial-f6ec9dd31e929c6f.dSYM: /Users/dan/Projects/public/learning_rust_with_cargo/src/examples/youtube_tutorial/src/main.rs /Users/dan/Projects/public/learning_rust_with_cargo/src/examples/youtube_tutorial/src/./tests/test_tutorials.rs
