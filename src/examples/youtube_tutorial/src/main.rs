@@ -5,7 +5,7 @@
 //  mod tests;
 
 #[cfg(test)]
-#[path="./tests/test_tutorials_#34~.rs"]
+#[path="./tests/test_concurrency_threads_channels_mutex_and_arc.rs"]
 
 mod tests_next;
 
