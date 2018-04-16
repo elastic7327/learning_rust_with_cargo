@@ -86,6 +86,8 @@ mod test_requests_more_easy_way {
         let response_text = reqwest::get("https://www.naver.com").expect("Could't make request").text().expect("Could not read response text!");
         println!("{}", response_text);
     }
+
+    assert!(response_text != None);
 }
 
 
